@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        var profiles = [{name: "Sindhu", age: 30}, {name: "Divya", age: 28}, {name: "Suji", age: 31}]    
+        // var person = {}
+        // for (let names of profiles){
+        //     person[names.name] = names.age  
+         
+        // }
+        // console.log(person)    
+     
+
+
+        function newPerson(x, y){
+            // return name, age;
+            // console.log(x, y)
+            
+            return {...x, [y.name]: y.age}
+
+        }
+        var result = profiles.reduce(newPerson, {})
+        console.log(result)
+    </script>    
+</head>
+<body>   
+    <input type="text">
+    <button>Submit</button>
+</body>
+</html>
