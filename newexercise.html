@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    Enter student name: <input type="text" id="names"><br><br>
+    <button onclick="doAdd()">Add student</button><br><br>
+    <span id="msg"></span>
+    <div id="doList"></div>
+</body>
+<script>
+    var students = ["Lekha", "Nadhiya", "Mirunalini"]
+    doLoad()
+    function doLoad() {
+        var result = "<ol>"
+        for (var i = 0; i < students.length; i++) {
+            result += "<li>" + students[i] + "</li>"
+        }
+        result += "</ol>"
+        document.getElementById("doList").innerHTML = result;
+    }
+    function showMsg() {
+        document.getElementById("msg").innerHTML = ""
+    }
+    function doAdd() {
+        var ipName = document.getElementById("names").value;
+
+        if (students.includes(ipName)) {
+            document.getElementById("msg").innerHTML = "Student name already exists!"
+            document.getElementById("msg").style.color = "red"
+            setTimeout(showMsg, 2000)
+        }
+        else {
+            students.push(ipName)
+            document.getElementById("msg").innerHTML = "Student name successfully added!"
+            document.getElementById("msg").style.color = "green"
+            setTimeout(showMsg, 2000)
+        }
+        doLoad();
+    }
+
+
+</script>
+
+</html>
