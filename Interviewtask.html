@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      var names = ["Hari", "Jagu", "Saran"];
+      function doDisplay() {
+        var displayNames = "<ol>";
+        for (i = 0; i < names.length; i++) {
+          displayNames += "<li>" + names[i] + "</li>";
+        }
+        displayNames += "</ol>";
+        document.getElementById("showList").innerHTML = displayNames;
+      }
+      function showMsg() {
+        document.getElementById("msg").innerHTML = "";
+      }
+      function doAddUser() {
+        var inputName = document.getElementById("ipbox").value;
+        isUserAvail = true;
+        for (i = 0; i < names.length; i++) {
+          if (names[i].toLowerCase() == inputName.toLowerCase()) {
+            isUserAvail = false;
+            break;
+          } else {
+            isUserAvail = true;
+          }
+        }
+        if (isUserAvail) {
+          names.push(inputName);
+          document.getElementById("msg").innerHTML = "Username available!";
+          document.getElementById("msg").style.color = "green";
+          setTimeout(showMsg, 3000);
+        } else {
+          document.getElementById("msg").innerHTML = "Username already exists!";
+          document.getElementById("msg").style.color = "red";
+          setTimeout(showMsg, 3000);
+        }
+        doDisplay();
+        document.getElementById("ipbox").value = "";
+      }
+    </script>
+  </head>
+  <body onload="doDisplay()">
+    <input type="text" id="ipbox" /><br /><br />
+    <button onclick="doAddUser()">Add user</button><br /><br />
+    <span id="msg"></span>
+    <div id="showList"></div>
+  </body>
+</html>
