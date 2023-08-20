@@ -29,8 +29,8 @@
     }
     function doAdd() {
         var ipName = document.getElementById("names").value;
-
-        if (students.includes(ipName)) {
+        
+            if (students.includes(ipName)) {
             document.getElementById("msg").innerHTML = "Student name already exists!"
             document.getElementById("msg").style.color = "red"
             setTimeout(showMsg, 2000)
@@ -42,7 +42,13 @@
             setTimeout(showMsg, 2000)
         }
         doLoad();
-    }
+        }
+       
+
+    
+        
+        
+    
 
 
 </script>
