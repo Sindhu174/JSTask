@@ -6,6 +6,7 @@
     <title>Document</title>
     <script>
       var names = ["Hari", "Jagu", "Saran"];
+
       function doDisplay() {
         var displayNames = "<ol>";
         for (i = 0; i < names.length; i++) {
@@ -17,25 +18,24 @@
       function showMsg() {
         document.getElementById("msg").innerHTML = "";
       }
+
       function doAddUser() {
         var inputName = document.getElementById("ipbox").value;
-        isUserAvail = true;
+        isUserAvail = false;
         for (i = 0; i < names.length; i++) {
           if (names[i].toLowerCase() == inputName.toLowerCase()) {
-            isUserAvail = false;
-            break;
-          } else {
             isUserAvail = true;
+            break;
           }
         }
         if (isUserAvail) {
+          document.getElementById("msg").innerHTML = "Username already exists!";
+          document.getElementById("msg").style.color = "red";
+          setTimeout(showMsg, 3000);
+        } else {
           names.push(inputName);
           document.getElementById("msg").innerHTML = "Username available!";
           document.getElementById("msg").style.color = "green";
-          setTimeout(showMsg, 3000);
-        } else {
-          document.getElementById("msg").innerHTML = "Username already exists!";
-          document.getElementById("msg").style.color = "red";
           setTimeout(showMsg, 3000);
         }
         doDisplay();
